@@ -1,14 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Calculator</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <h1>Calculator</h1>
-    <h2>saji</h2>
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="flex items-center justify-center h-screen">
+    <div class="flex flex-col  border border-2 w-3/4 gap-5 p-5 rounded-lg">
+        
+      <!-- heading -->
+      <h1 class="text-center font-bold text-md lg:text-3xl">
+        Income Expense Calculator
+      </h1>
+      <!-- total -->
+      <div class="flex gap-3 md:flex-row flex-col sm:items-center sm:justify-center">
+        <div
+          class="lg:py-3 lg:px-10 md:px-5 py-3 px-10 rounded-md text-center bg-green-100 shadow-md"
+        >
+          Total Income:
+        </div>
+        <div
+          class="lg:py-3 lg:px-10 md:px-5 py-3 px-10 rounded-md text-center bg-red-100 shadow-md"
+        >
+          Total Expenses:
+        </div>
+        <div
+          class="lg:py-3 lg:px-10 md:px-5 py-3 px-10 rounded-md text-center bg-blue-100 shadow-md"
+        >
+          Net Balance:
+        </div>
+      </div>
+      <!-- income -->
+      <div class="flex gap-3 md:flex-row flex-col">
+        <input type="text" class="border border-2 rounded-md md:w-3/4 py-2 text-center" placeholder="Description"  />
+        <input type="text" class="border border-2 rounded-md md:w-3/4 py-2 text-center " placeholder="Amount" />
+        <select class="rounded-md py-3 px-5 text-center bg-gray-200">
+          <option value="Income">Income</option>
+          <option value="Expenses">Expenses</option>
+        </select>
+        <button class="rounded-md py-3 px-5 text-center bg-blue-500">
+          Add
+        </button>
+        <button class="rounded-md py-3 px-5 text-center bg-rose-500 text-white">
+          Reset
+        </button>
+      </div>
+      <!-- radio button -->
+      <div class="flex justify-around sm:justify-start sm:gap-5 ">
+        <div>
+          <input type="radio" id="all" />
+          <label for="all">All</label>
+        </div>
+        <div>
+          <input type="radio" id="income" />
+          <label for="income">Income</label>
+        </div>
+        <div>
+          <input type="radio" id="expenses" />
+          <label for="expenses">Expenses</label>
+        </div>
+      </div>
+      <!-- amount list -->
+       <div class="flex justify-between sm:flex-row flex-col border border-1 sm:px-3 py-2 rounded-lg sm:items-center bg-gray-50 gap-2 sm:gap-3 px-3 ">
+        <div class="flex justify-between  sm:w-1/2">
+        <div class="text-sm md:text-lg ">home- <span class="text-sm md:text-lg px-1">₹ 1000</span></div>
+        <div class="rounded-full bg-green-100 md:px-3 md:py-1 text-center px-2 py-1 text-sm md:text-lg">income</div>
+        </div>
+        <div class="flex gap-3 sm:w-1/2 sm:justify-end justify-between">
+            <button class="md:px-5 md:py-2 px-2 py-1 bg-yellow-300 rounded-md text-sm md:text-lg">Edit</button>
+            <button class="md:px-5 md:py-2 px-2 py-1 bg-red-400 rounded-md text-white text-sm md:text-lg">Delete</button>
+
+        </div>
+       </div>
+    </div>
+
     <script src="script.js"></script>
-</body>
+  </body>
 </html>
