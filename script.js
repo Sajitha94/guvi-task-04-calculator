@@ -64,6 +64,7 @@ function updateAmount() {
 }
 
 const renterEntryList = () => {
+     form.reset();
  if (entry_list.length > 0) {
     filter_group.classList.remove("hidden");
   } else {
@@ -73,7 +74,7 @@ const renterEntryList = () => {
   }
   const filter = document.querySelector('input[name="filter"]:checked').value.toLowerCase();
   amount_list.innerHTML = "";
-  form.reset();
+ 
 
   entry_list.filter((e, index) => {
     if (filter == "all" || e.selected_value.toLowerCase() == filter) {
