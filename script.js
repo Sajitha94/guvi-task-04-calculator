@@ -64,6 +64,13 @@ function updateAmount() {
 }
 
 const renterEntryList = () => {
+ if (entry_list.length > 0) {
+    filter_group.classList.remove("hidden");
+  } else {
+    filter_group.classList.add("hidden");
+      amount_list.innerHTML = "";
+    return
+  }
   const filter = document.querySelector('input[name="filter"]:checked').value.toLowerCase();
   amount_list.innerHTML = "";
   form.reset();
@@ -106,11 +113,7 @@ const renterEntryList = () => {
       });
     }
   });
-  if (entry_list.length > 0) {
-    filter_group.classList.remove("hidden");
-  } else {
-    filter_group.classList.add("hidden");
-  }
+ 
 };
 
 const radioFilter = document.querySelectorAll('input[name="filter"]');
