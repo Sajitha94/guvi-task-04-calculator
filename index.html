@@ -19,61 +19,53 @@
         <div
           class="lg:py-3 lg:px-10 md:px-5 py-3 px-10 rounded-md text-center bg-green-100 shadow-md"
         >
-          Total Income:
+          Total Income: <span id="total-income"></span>
         </div>
         <div
           class="lg:py-3 lg:px-10 md:px-5 py-3 px-10 rounded-md text-center bg-red-100 shadow-md"
         >
-          Total Expenses:
+          Total Expenses: <span id="total-expenses"></span>
         </div>
         <div
           class="lg:py-3 lg:px-10 md:px-5 py-3 px-10 rounded-md text-center bg-blue-100 shadow-md"
         >
-          Net Balance:
+          Net Balance: <span id="net-balance"></span>
         </div>
       </div>
       <!-- income -->
-      <div class="flex gap-3 md:flex-row flex-col">
-        <input type="text" class="border border-2 rounded-md md:w-3/4 py-2 text-center" placeholder="Description"  />
-        <input type="text" class="border border-2 rounded-md md:w-3/4 py-2 text-center " placeholder="Amount" />
-        <select class="rounded-md py-3 px-5 text-center bg-gray-200">
-          <option value="Income" class=" py-3 px-5">Income</option>
-          <option value="Expenses"  class=" py-3 px-5">Expenses</option>
+      <form class="flex gap-3 md:flex-row flex-col" id="entry-form" >
+        <input type="text" class=" border border-1  rounded-md md:w-3/4 py-2 text-center focus:outline-none" placeholder="Description" id="description" pattern="[A-Za-z\s]+" required/>
+        <input type="text" class=" border border-1 rounded-md md:w-3/4 py-2 text-center focus:outline-none" placeholder="Amount"  pattern="[0-9]+" id="amount"required/>
+        <select class="rounded-md py-3 px-5 text-center bg-gray-200" id="select-amount">
+          <option value="Income" >Income</option>
+          <option value="Expenses">Expenses</option>
         </select>
-        <button class="rounded-md py-3 px-5 text-center bg-blue-500">
+        <button type="submit" class="rounded-md py-3 px-5 text-center bg-blue-500" id="add-btn">
           Add
         </button>
-        <button class="rounded-md py-3 px-5 text-center bg-rose-500 text-white">
+        <button type="reset" class="rounded-md py-3 px-5 text-center bg-rose-500 text-white">
           Reset
         </button>
-      </div>
+      </form>
       <!-- radio button -->
       <div class="flex justify-around sm:justify-start sm:gap-5 ">
         <div>
-          <input type="radio" id="all" />
+          <input type="radio" id="all" value="all" name="filter" />
           <label for="all">All</label>
         </div>
         <div>
-          <input type="radio" id="income" />
+          <input type="radio" id="income" value="income" name="filter"/>
           <label for="income">Income</label>
         </div>
         <div>
-          <input type="radio" id="expenses" />
+          <input type="radio" id="expenses" value="expenses" name="filter"/>
           <label for="expenses">Expenses</label>
         </div>
       </div>
       <!-- amount list -->
-       <div class="flex justify-between sm:flex-row flex-col border border-1 sm:px-3 py-2 rounded-lg sm:items-center bg-gray-50 gap-2 sm:gap-3 px-3 ">
-        <div class="flex justify-between  sm:w-1/2">
-        <div class="text-sm md:text-lg ">home- <span class="text-sm md:text-lg px-1">₹ 1000</span></div>
-        <div class="rounded-full bg-green-100 md:px-3 md:py-1 text-center px-2 py-1 text-sm md:text-lg">income</div>
-        </div>
-        <div class="flex gap-3 sm:w-1/2 sm:justify-end justify-between">
-            <button class="md:px-5 md:py-2 px-2 py-1 bg-yellow-300 rounded-md text-sm md:text-lg">Edit</button>
-            <button class="md:px-5 md:py-2 px-2 py-1 bg-red-400 rounded-md text-white text-sm md:text-lg">Delete</button>
 
-        </div>
-       </div>
+      <ul id="amount-list" class="flex gap-3 flex-col"></ul>
+
     </div>
 
     <script src="script.js"></script>
