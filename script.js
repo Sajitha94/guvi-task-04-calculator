@@ -57,16 +57,14 @@ function updateAmount() {
     else totalExpenses += amount;
   });
 
-  
+
   total_income.textContent = totalIncome;
   total_expenses.textContent = totalExpenses;
   net_balance.textContent = totalIncome - totalExpenses;
 }
 
 const renterEntryList = () => {
-  const filter = document
-    .querySelector('input[name="filter"]:checked')
-    .value.toLowerCase();
+  const filter = document.querySelector('input[name="filter"]:checked').value.toLowerCase();
   amount_list.innerHTML = "";
   form.reset();
 
