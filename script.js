@@ -57,6 +57,7 @@ function updateAmount() {
     else totalExpenses += amount;
   });
 
+  
   total_income.textContent = totalIncome;
   total_expenses.textContent = totalExpenses;
   net_balance.textContent = totalIncome - totalExpenses;
