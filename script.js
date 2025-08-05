@@ -7,6 +7,7 @@ const amount = document.getElementById("amount");
 const total_income = document.getElementById("total-income");
 const total_expenses = document.getElementById("total-expenses");
 const net_balance = document.getElementById("net-balance");
+const filter_group = document.getElementById("filter-group");
 
 let entry_list = JSON.parse(localStorage.getItem("entries")) || [];
 let editId = null;
@@ -45,7 +46,7 @@ form.addEventListener("submit", (e) => {
 
   form.reset();
 });
-updateAmount();
+
 function updateAmount() {
   let totalIncome = 0;
   let totalExpenses = 0;
@@ -60,6 +61,7 @@ function updateAmount() {
   total_expenses.textContent = totalExpenses;
   net_balance.textContent = totalIncome - totalExpenses;
 }
+
 const renterEntryList = () => {
   const filter = document
     .querySelector('input[name="filter"]:checked')
@@ -101,9 +103,15 @@ const renterEntryList = () => {
         entry_list.splice(index, 1);
         localStorage.setItem("entries", JSON.stringify(entry_list));
         renterEntryList();
+        updateAmount();
       });
     }
   });
+  if (entry_list.length > 0) {
+    filter_group.classList.remove("hidden");
+  } else {
+    filter_group.classList.add("hidden");
+  }
 };
 
 const radioFilter = document.querySelectorAll('input[name="filter"]');
@@ -111,3 +119,4 @@ radioFilter.forEach((value) => {
   value.addEventListener("change", renterEntryList);
 });
 renterEntryList();
+updateAmount();
